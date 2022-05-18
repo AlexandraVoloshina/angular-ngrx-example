@@ -9,6 +9,8 @@ import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 
 import { FormsModule } from '@angular/forms';
+import { ExampleEffects } from './store/example.effects';
+import { HttpClientModule }   from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     StoreModule.forRoot({example: fromReducer.reducer}),
-    EffectsModule.forRoot([]),
-    FormsModule
+    EffectsModule.forRoot([ExampleEffects]),
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

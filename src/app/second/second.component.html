@@ -2,3 +2,7 @@
 <p>Count: {{ count$ | async }}</p>
 <p>Message:</p>
 <p>{{ message$ | async }}</p>
+
+<button (click)="getData()">Load Data</button>
+
+<p>Is data loading: {{dataLoading$ | async}}</p>

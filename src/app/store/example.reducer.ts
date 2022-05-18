@@ -4,10 +4,13 @@ import { ExampleActions } from "./example.actions";
 export interface State {
     count: number;
     message?: string;
+    data?: any;
+    dataLoading: boolean;
 }
 
 const initialState: State = {
     count: 0,
+    dataLoading: false,
 };
 
 const exampleReducer = createReducer(
@@ -19,7 +22,16 @@ const exampleReducer = createReducer(
     on(ExampleActions.sendMessage, (state, {message}) => ({
         ...state,
         message: message,
-    }))
+    })),
+    on(ExampleActions.getData, (state) => ({
+        ...state,
+        dataLoading: true,
+    })),
+    on(ExampleActions.getDataSuccess, (state, { data }) => ({
+        ...state,
+        dataLoading: false,
+        data: data,
+    })),
 );
 
 export function reducer(state: State | undefined, action: Action) {

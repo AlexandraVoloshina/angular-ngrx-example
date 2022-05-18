@@ -10,6 +10,14 @@ export namespace ExampleSelectors {
 
     export const messageAndCount = createSelector(state, (state) => {
         return state.message ? state.message + state.count : state.count;
-    })
+    });
+
+    export const giveMealData = createSelector(state, (state) => {
+        return state.data;
+    });
+
+    export const dataLoading = createSelector(
+        state, 
+        (state) => state.dataLoading);
 
 }
